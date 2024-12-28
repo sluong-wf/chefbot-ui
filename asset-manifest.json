@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/chefbot-ui/static/css/main.f855e6bc.css",
-    "main.js": "/chefbot-ui/static/js/main.b9734bff.js",
-    "static/js/488.a3948154.chunk.js": "/chefbot-ui/static/js/488.a3948154.chunk.js",
-    "index.html": "/chefbot-ui/index.html",
-    "main.f855e6bc.css.map": "/chefbot-ui/static/css/main.f855e6bc.css.map",
-    "main.b9734bff.js.map": "/chefbot-ui/static/js/main.b9734bff.js.map",
-    "488.a3948154.chunk.js.map": "/chefbot-ui/static/js/488.a3948154.chunk.js.map"
+    "main.css": "/static/css/main.f855e6bc.css",
+    "main.js": "/static/js/main.f8448c42.js",
+    "static/js/488.a3948154.chunk.js": "/static/js/488.a3948154.chunk.js",
+    "index.html": "/index.html",
+    "main.f855e6bc.css.map": "/static/css/main.f855e6bc.css.map",
+    "main.f8448c42.js.map": "/static/js/main.f8448c42.js.map",
+    "488.a3948154.chunk.js.map": "/static/js/488.a3948154.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f855e6bc.css",
-    "static/js/main.b9734bff.js"
+    "static/js/main.f8448c42.js"
   ]
 }
