@@ -1,44 +1,75 @@
 import React from "react";
-// import PropTypes from "prop-types";
-import "./Recipe.css";
 
 const Recipe = ({ recipe }) => {
-  if (!recipe || !recipe.title) {
-    return <p>No recipe available. Please generate one!</p>;
-  }
+    if (!recipe) {
+        return null;
+    }
 
-  return (
-    <div className="recipe-card">
-      <h2>{recipe.title}</h2>
+    const styles = {
+        container: {
+            padding: "20px 40px",
+            borderRadius: "18px",
+            maxWidth: "800px",
+            margin: "20px auto",
+            backgroundColor: "#f9f9f9",
+            textAlign: "left",
+        },
+        title: {
+            fontSize: "32px",
+            fontWeight: "bold",
+            color: "#333",
+            marginBottom: "15px",
+        },
+        sectionTitle: {
+            fontSize: "24px",
+            fontWeight: "bold",
+            color: "brown",
+            margin: "20px 0",
+        },
+        list: {
+            paddingLeft: "20px",
+            margin: "15px 0",
+        },
+        listItem: {
+            margin: "15px 0",
+            color: "#444",
+            padding: "0 10px",
+        },
+        divider: { 
+            height: "1px", 
+            backgroundColor: "#ccc", 
+            margin: "30px 0", 
+            width: "100%" 
+        },
+    };
 
-      <div className="recipe-section">
-        <h3>Ingredients:</h3>
-        <ul>
-          {recipe.ingredients.map((ingredient, index) => (
-            <li key={index}>{ingredient}</li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="recipe-section">
-        <h3>Steps:</h3>
-        <ol>
-          {recipe.steps.map((step, index) => (
-            <li key={index}>{step}</li>
-          ))}
-        </ol>
-      </div>
-    </div>
-  );
+    return (
+        <div style={styles.container}>
+            <h2 style={styles.title}>{recipe.title}</h2>
+            <div>
+                <div style={styles.divider}></div>
+                <h3 style={styles.sectionTitle}>Ingredients:</h3>
+                <ul style={styles.list}>
+                    {recipe.ingredients.map((ingredient, index) => (
+                        <li key={index} style={styles.listItem}>
+                            {ingredient}
+                        </li>
+                    ))}
+                </ul>
+            </div>
+            <div>
+                <div style={styles.divider}></div>
+                <h3 style={styles.sectionTitle}>Instructions:</h3>
+                <ol style={styles.list}>
+                    {recipe.steps.map((step, index) => (
+                        <li key={index} style={styles.listItem}>
+                            {step}
+                        </li>
+                    ))}
+                </ol>
+            </div>
+        </div>
+    );
 };
-
-// // Prop type validation
-// Recipe.propTypes = {
-//   recipe: PropTypes.shape({
-//     title: PropTypes.string.isRequired,
-//     ingredients: PropTypes.arrayOf(PropTypes.string).isRequired,
-//     steps: PropTypes.arrayOf(PropTypes.string).isRequired,
-//   }),
-// };
 
 export default Recipe;
