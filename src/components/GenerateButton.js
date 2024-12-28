@@ -13,7 +13,6 @@ const GenerateButton = ({ onClick, text }) => {
             color: "#fff",
             cursor: "pointer",
             outline: "none",
-            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
             backgroundColor: isHovered ? "brown" : "brown",  // Change background on hover
             border: `2px solid ${isHovered ? "brown" : "brown"}`,  // Change border on hover
             borderRadius: "5px",

@@ -3,7 +3,6 @@ import Recipe from "../components/Recipe";
 import SingleSelector from "../components/SingleSelector";
 import GenerateButton from "../components/GenerateButton";
 import recipeService from "../services/recipeService";
-const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 const HomePage = () => {
     const dietTypes = [
