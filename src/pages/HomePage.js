@@ -3,6 +3,9 @@ import Recipe from "../components/Recipe";
 import SingleSelector from "../components/SingleSelector";
 import GenerateButton from "../components/GenerateButton";
 import recipeService from "../services/recipeService";
+import WaggingDog from '../components/WaggingDog';
+import StripedCat from '../components/StripedCat';
+import ChefHat from '../components/ChefHat';
 
 const HomePage = () => {
     const dietTypes = [
@@ -32,18 +35,37 @@ const HomePage = () => {
     ];
 
     const styles = {
-        recipeContainer: {
-            background: "bisque",
-            margin: "40px 0",
-        },
         container: {
             background: "bisque",
             padding: "20px 0px",
+            position: "relative",
         },
         selectionContainer: {
             background: "white",
             padding: "20px 0px",
-        }
+        },
+        recipeContainer: {
+            background: "bisque",
+            margin: "40px 0",
+        },
+        topLeftCorner: {
+            top: "30px",
+            left: "20px",
+            position: "absolute",
+            transform: "scale(0.8)",
+            visibility: "hidden",
+        },
+        bottomRightCorner: {
+            position: "absolute",
+            bottom: "30px",
+            right: "10px",
+            transform: "scale(0.8)",
+            transformOrigin: "bottom"
+        },
+        animalsContainer: {
+            display: "flex",
+            flexDirection: "row"
+        },
     };
 
     const [selectedDiet, setSelectedDiet] = useState('');
@@ -76,8 +98,11 @@ const HomePage = () => {
 
     return (
         <div style={styles.container}>
+            <div style={styles.topLeftCorner}>
+                <ChefHat />
+            </div>
             <div style={styles.selectionContainer}>
-                <h1>👩‍🍳 ChefBot: An AI-Powered Recipe Assistant</h1>
+                <h1>🍳 ChefBot: An AI-Powered Recipe Assistant</h1>
                 <SingleSelector
                     options={dietTypes}
                     onSelectionChange={setSelectedDiet}
@@ -111,6 +136,12 @@ const HomePage = () => {
                     onClick={handleSubmit}
                     text={loading ? "Generating..." : "Generate Recipe"}
                 />
+                <div style={styles.bottomRightCorner}>
+                    <div style={styles.animalsContainer}>
+                        <WaggingDog />
+                        <StripedCat />
+                    </div>
+                </div>
             </div>
             {recipe && (
                 <div style={styles.recipeContainer}>
