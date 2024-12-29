@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Recipe from "../components/Recipe";
 import SingleSelector from "../components/SingleSelector";
 import GenerateButton from "../components/GenerateButton";
@@ -35,18 +35,23 @@ const HomePage = () => {
     ];
 
     const styles = {
+        pageContainer: {
+            background: "bisque",
+            minHeight: "100vh",
+            position: "relative",
+        },
         container: {
             background: "bisque",
             padding: "20px 0px",
-            position: "relative",
         },
         selectionContainer: {
             background: "white",
             padding: "20px 0px",
+            position: "relative",
         },
         recipeContainer: {
             background: "bisque",
-            margin: "40px 0",
+            margin: "60px 0",
         },
         topLeftCorner: {
             top: "30px",
@@ -57,7 +62,7 @@ const HomePage = () => {
         },
         bottomRightCorner: {
             position: "absolute",
-            bottom: "30px",
+            bottom: "15px",
             right: "10px",
             transform: "scale(0.8)",
             transformOrigin: "bottom"
@@ -97,57 +102,59 @@ const HomePage = () => {
     };
 
     return (
-        <div style={styles.container}>
-            <div style={styles.topLeftCorner}>
-                <ChefHat />
-            </div>
-            <div style={styles.selectionContainer}>
-                <h1>🍳 ChefBot: An AI-Powered Recipe Assistant</h1>
-                <SingleSelector
-                    options={dietTypes}
-                    onSelectionChange={setSelectedDiet}
-                    title="Diet Preference"
-                />
-                <SingleSelector
-                    options={cuisines}
-                    onSelectionChange={setSelectedCuisine}
-                    title="Cuisine Preference"
-                />
-                <br />
-                <label>
-                    Foods to Avoid:
-                    <input
-                        type="text"
-                        value={foodsToAvoid}
-                        onChange={(e) => setFoodsToAvoid(e.target.value)}
+        <div style={styles.pageContainer}>
+            <div style={styles.container}>
+                <div style={styles.topLeftCorner}>
+                    <ChefHat />
+                </div>
+                <div style={styles.selectionContainer}>
+                    <h1>🍳 ChefBot: An AI-Powered Recipe Assistant</h1>
+                    <SingleSelector
+                        options={dietTypes}
+                        onSelectionChange={setSelectedDiet}
+                        title="Diet Preference"
                     />
-                </label>
-                <br />
-                <label>
-                    Ingredients (comma-separated):
-                    <input
-                        type="text"
-                        value={ingredients}
-                        onChange={(e) => setIngredients(e.target.value)}
+                    <SingleSelector
+                        options={cuisines}
+                        onSelectionChange={setSelectedCuisine}
+                        title="Cuisine Preference"
                     />
-                </label>
-                <br />
-                <GenerateButton
-                    onClick={handleSubmit}
-                    text={loading ? "Generating..." : "Generate Recipe"}
-                />
-                <div style={styles.bottomRightCorner}>
-                    <div style={styles.animalsContainer}>
-                        <WaggingDog />
-                        <StripedCat />
+                    <br />
+                    <label>
+                        Foods to Avoid:
+                        <input
+                            type="text"
+                            value={foodsToAvoid}
+                            onChange={(e) => setFoodsToAvoid(e.target.value)}
+                        />
+                    </label>
+                    <br />
+                    <label>
+                        Ingredients (comma-separated):
+                        <input
+                            type="text"
+                            value={ingredients}
+                            onChange={(e) => setIngredients(e.target.value)}
+                        />
+                    </label>
+                    <br />
+                    <GenerateButton
+                        onClick={handleSubmit}
+                        text={loading ? "Generating..." : "Generate Recipe"}
+                    />
+                </div>
+                {recipe && (
+                    <div style={styles.recipeContainer}>
+                        <Recipe recipe={recipe} />
                     </div>
+                )}
+            </div>
+            <div style={styles.bottomRightCorner}>
+                <div style={styles.animalsContainer}>
+                    <WaggingDog />
+                    <StripedCat />
                 </div>
             </div>
-            {recipe && (
-                <div style={styles.recipeContainer}>
-                    <Recipe recipe={recipe} />
-                </div>
-            )}
         </div>
     );
 }
