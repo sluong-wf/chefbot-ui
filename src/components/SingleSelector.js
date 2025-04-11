@@ -13,19 +13,21 @@ const SingleSelector = ({ options, onSelectionChange, title }) => {
   const styles = {
     container: {
       display: "flex",
-      margin: "35px 20px",
+      flexDirection: "column",
+      margin: "20px auto",
+      width: "80%",
+    },
+    title: {
+      margin: "0 0 10px 0",
+      textAlign: "left",
+      fontWeight: "bold",
+      fontSize: "1.17em",
     },
     optionsContainer: {
       display: "flex",
       flexWrap: "wrap",
       gap: "10px",
-      margin: "0 10px",
-    },
-    selectionTitle: {
-      width: "200px",
-      margin: "0 10px",
-      textAlign: "right",
-      alignContent: "center",
+      width: "100%",
     },
     button: {
       padding: "10px 20px",
@@ -46,7 +48,7 @@ const SingleSelector = ({ options, onSelectionChange, title }) => {
 
   return (
     <div style={styles.container}>
-      {title && <h3 style={styles.selectionTitle}>{title}</h3>}
+      <h3 style={styles.title}>{title}</h3>
       <div style={styles.optionsContainer}>
         {options.map((option) => (
           <button
