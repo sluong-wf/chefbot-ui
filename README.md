@@ -1,5 +1,4 @@
 # Web App to generate customizable recipes using GPTs
 
 
-https://github.com/user-attachments/assets/afda7cc7-a648-4d9a-988f-4f9996807ecc
-
+https://github.com/user-attachments/assets/8b2b0e3b-b5f4-4441-a35f-21696149718b
